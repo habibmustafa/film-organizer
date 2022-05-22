@@ -22,7 +22,7 @@ const SearchBox = ({ setMovies }) => {
                   value={searchLine}
                   type="text"
                   className="search-box__form-input"
-                  placeholder="Например, Shawshank Redemption"
+                  placeholder="For example, Shawshank Redemption"
                   onChange={searchLineChangeHandler}
                />
             </label>

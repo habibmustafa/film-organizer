@@ -38,7 +38,7 @@ const Favorites = ({ movies, removeMovie, listPage, activeStatus }) => {
       <div className="favorites">
          <input value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
-            placeholder="Новый список" className="favorites__name"
+            placeholder="New list.." className="favorites__name"
             disabled={active && true}
          />
          <ul className="favorites__list">
@@ -53,8 +53,10 @@ const Favorites = ({ movies, removeMovie, listPage, activeStatus }) => {
          {!active && <button
             onClick={clickBtn}
             disabled={movies.length === 0 || !inputValue || isPending}
-            type="button" className="favorites__save">
-            {!isPending ? "Сохранить список" : "Loading.."}
+            type="button"
+            className="favorites__save"
+         >
+            {!isPending ? "Save List" : "Loading.."}
          </button>}
          {active && listPage(id)}
          {active && <Link to={`/list/${id}`}>

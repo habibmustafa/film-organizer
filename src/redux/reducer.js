@@ -22,9 +22,7 @@ export default function reducer(state = initialState, action) {
 
       case "ADD_FAVORITE_FILM": {
          let newArray = state.favoriteFilms.slice();
-         let checkArray = newArray.some(
-            (item) => item.id === action.payload.imdbID
-         );
+         let checkArray = newArray.some(item => item.id === action.payload.imdbID);
 
          // ---
          if (!state.active)
