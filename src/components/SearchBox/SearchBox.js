@@ -1,23 +1,23 @@
-import React, { useState } from 'react';
-import { connect } from "react-redux"
-import './SearchBox.css';
-import { sortMovies } from "../../redux/action"
+import React, { useState } from "react";
+import { connect } from "react-redux";
+import "./SearchBox.css";
+import { setMovies } from "../../redux/action";
 
-const SearchBox = ({ sortMovies }) => {
-   const [searchLine, setSearchLine] = useState('')
+const SearchBox = ({ setMovies }) => {
+   const [searchLine, setSearchLine] = useState("");
 
    const searchLineChangeHandler = (e) => {
-      setSearchLine(e.target.value)
-   }
+      setSearchLine(e.target.value);
+   };
    const searchBoxSubmitHandler = (e) => {
       e.preventDefault();
-   }
+   };
 
    return (
       <div className="search-box">
          <form className="search-box__form" onSubmit={searchBoxSubmitHandler}>
             <label className="search-box__form-label">
-               Искать фильм по названию:
+               Search movie by title:
                <input
                   value={searchLine}
                   type="text"
@@ -30,19 +30,21 @@ const SearchBox = ({ sortMovies }) => {
                type="submit"
                className="search-box__form-submit"
                disabled={!searchLine}
-               onClick={() => sortMovies(searchLine)}
+               onClick={() => setMovies(searchLine)}
             >
-               Искать
+               Search
             </button>
          </form>
       </div>
    );
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
    return {
-      sortMovies: (name) => { dispatch(sortMovies(name)) }
-   }
-}
+      setMovies: (name) => {
+         dispatch(setMovies(name));
+      },
+   };
+};
 
-export default connect(undefined, mapDispatchToProps)(SearchBox)
+export default connect(undefined, mapDispatchToProps)(SearchBox);

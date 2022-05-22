@@ -10,7 +10,7 @@ const MovieItem = ({ Title, Year, Poster, imdbID, favoriteMovies }) => {
          <div className="movie-item__info">
             <h3 className="movie-item__title">{Title}&nbsp;({Year})</h3>
             <button onClick={() => favoriteMovies(imdbID, Title, Year)}
-               type="button" className="movie-item__add-button">Добавить в список</button>
+               type="button" className="movie-item__add-button">Add to the list</button>
          </div>
       </article>
    );

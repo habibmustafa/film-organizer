@@ -58,7 +58,7 @@ const Favorites = ({ movies, removeMovie, listPage, activeStatus }) => {
          </button>}
          {active && listPage(id)}
          {active && <Link to={`/list/${id}`}>
-            Linkə keçid..
+            Enter to Link..
          </Link>}
       </div>
    );
@@ -72,7 +72,7 @@ const mapDispatchToProps = dispatch => {
    return {
       removeMovie: (id) => { dispatch(removeFavoriteMovies(id)) },
       listPage: (id) => { dispatch(listPage(id)) },
-      activeStatus: (status => {dispatch(activeStatus(status))})
+      activeStatus: (status => { dispatch(activeStatus(status)) })
    }
 }
 

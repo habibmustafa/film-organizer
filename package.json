@@ -1,5 +1,4 @@
 {
-   "homepage": "https://habibmustafa.github.io/film-organizer",
    "name": "reactlearn",
    "version": "0.1.0",
    "private": true,
@@ -17,7 +16,7 @@
       "redux": "^4.2.0",
       "redux-thunk": "^2.4.1",
       "web-vitals": "^2.1.4"
-   },
+   }, 
    "scripts": {
       "predeploy": "npm run build",
       "deploy": "gh-pages -d build",

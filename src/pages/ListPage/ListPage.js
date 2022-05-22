@@ -27,7 +27,10 @@ const ListPage = ({ listPage, movies }) => {
 }
 
 const mapStateToProps = state => {
-   return { listPage: state.list, movies: state.favoriteFilms }
+   return {
+      listPage: state.list,
+      movies: state.favoriteFilms
+   }
 }
 
 export default connect(mapStateToProps)(ListPage);

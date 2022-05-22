@@ -9,10 +9,12 @@ const MainPage = () => {
    const [show, setShow] = useState(false)
    return (
       <div className="main-page">
-         <Header />
-         <button className="favorite-show-btn" onClick={() => { setShow(!show) }}>
-            {!show ? "Sevimli filmləri göstər" : "Sevimli filmləri gizlət"}
-         </button>
+         <header>
+            <Header />
+            <button className="favorite-show-btn" onClick={() => { setShow(!show) }}>
+               {!show ? "Show your favorite movies" : "Hide your favorite movies"}
+            </button>
+         </header>
          <main className="main-page__content">
             <section className="main-page__main-section">
                <div className="main-page__search-box">
