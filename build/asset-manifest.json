@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/film-organizer/static/css/main.7fdbefca.css",
-    "main.js": "/film-organizer/static/js/main.4a206fa9.js",
+    "main.css": "/film-organizer/static/css/main.f9cf46db.css",
+    "main.js": "/film-organizer/static/js/main.eb063182.js",
     "index.html": "/film-organizer/index.html",
-    "main.7fdbefca.css.map": "/film-organizer/static/css/main.7fdbefca.css.map",
-    "main.4a206fa9.js.map": "/film-organizer/static/js/main.4a206fa9.js.map"
+    "main.f9cf46db.css.map": "/film-organizer/static/css/main.f9cf46db.css.map",
+    "main.eb063182.js.map": "/film-organizer/static/js/main.eb063182.js.map"
   },
   "entrypoints": [
-    "static/css/main.7fdbefca.css",
-    "static/js/main.4a206fa9.js"
+    "static/css/main.f9cf46db.css",
+    "static/js/main.eb063182.js"
   ]
 }
