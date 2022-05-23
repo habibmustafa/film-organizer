@@ -8,7 +8,7 @@ export const setMovies = (name) => {
    return (dispatch) => {
       const getData = async () => {
          const response = await fetch(
-            `http://www.omdbapi.com/?s=${name}&apikey=91b17070`
+            `https://www.omdbapi.com/?s=${name}&apikey=91b17070`
          );
          const data = response.json();
          return data;
