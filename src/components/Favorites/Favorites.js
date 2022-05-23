@@ -8,11 +8,12 @@ const Favorites = ({ movies, removeMovie, listPage, activeStatus }) => {
    const [inputValue, setInputValue] = useState('')
    const [active, setActive] = useState(false)
    const [isPending, setIsPending] = useState(false)
-   const [id, setId] = useState('')
+   const [dataId, setDataId] = useState('')
 
    const clickBtn = () => {
 
       setIsPending(true)
+      setActive(true)
       const info = {
          title: inputValue,
          movies: movies.map(movie => movie.id)
@@ -26,20 +27,19 @@ const Favorites = ({ movies, removeMovie, listPage, activeStatus }) => {
       })
          .then(res => res.json())
          .then(data => {
-            setActive(true)
+
             setIsPending(false)
-            setId(data.id)
+            setDataId(data.id)
          })
    }
 
-   // ---
    active ? activeStatus(true) : activeStatus(false)
    return (
       <div className="favorites">
          <input value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             placeholder="New list.." className="favorites__name"
-            disabled={active && true}
+            disabled={active}
          />
          <ul className="favorites__list">
             {movies.map((item) => (
@@ -50,18 +50,19 @@ const Favorites = ({ movies, removeMovie, listPage, activeStatus }) => {
             ))}
          </ul>
 
-         {!active && <button
-            onClick={clickBtn}
-            disabled={movies.length === 0 || !inputValue || isPending}
-            type="button"
-            className="favorites__save"
-         >
-            {!isPending ? "Save List" : "Loading.."}
-         </button>}
-         {active && listPage(id)}
-         {active && <Link to={`/list/${id}`}>
-            Enter to Link..
-         </Link>}
+         {!active || isPending ?
+            <button
+               onClick={clickBtn}
+               disabled={movies.length === 0 || !inputValue || isPending}
+               type="button"
+               className="favorites__save"
+            >
+               {!isPending ? "Save List" : "Loading.."}
+            </button> :
+            (<Link to={`/list/${dataId}`}>
+               Enter to Link..
+            </Link>)}
+         {dataId && listPage(dataId)}
       </div>
    );
 }
@@ -73,7 +74,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
    return {
       removeMovie: (id) => { dispatch(removeFavoriteMovies(id)) },
-      listPage: (id) => { dispatch(listPage(id)) },
+      listPage: (dataId) => { dispatch(listPage(dataId)) },
       activeStatus: (status => { dispatch(activeStatus(status)) })
    }
 }
